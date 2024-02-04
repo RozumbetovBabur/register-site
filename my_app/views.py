@@ -13,7 +13,6 @@ def index_page(request):
         model.password = request.POST['password']
         model.course_type = request.POST['course_type']
         model.save()
-        print(request.POST.get('course_type',None))
     return render(request,"register.html")
 
 
