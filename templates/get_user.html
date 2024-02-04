@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <h1 style="background-color:#7b8fb9;text-align:center; margin:40px;padding:40px;color:white;border-radius:10px">Paydalaniwshilardin' dizimi</h1>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">T/r</th>
+      <th scope="col">Nomi</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefon raqami</th>
+      <th scope="col">User paroli</th>
+      <th scope="col">Kurs nomi</th>
+      <th>
+            O'chirish
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in student %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone_number}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.course_type}}</td>
+      <td>
+            <form action="{% url 'delete_user' user.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">O'chirish</button>
+            </form>
+
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
